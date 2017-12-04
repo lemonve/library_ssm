@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.limeng.ssm.dao.UserDao">
+    <select id="qryAllUserList" resultType="User">
+        SELECT * FROM  USER limit #{offset},#{limit}
+    </select>
+
+    <insert id="insertUser" parameterType="com.limeng.ssm.entity.User">
+      INSERT INTO USER (user_name,user_password,user_phone,passwd_error
+      )
+      VALUES (#{user_name,jdbcType=VARCHAR},#{user_password,jdbcType=VARCHAR},#{user_phone,jdbcType=VARCHAR} ,#{passwd_error,jdbcType=INTEGER}
+      )
+    </insert>
+</mapper>
